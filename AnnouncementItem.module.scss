@@ -1,0 +1,106 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins' as *;
+
+.announcement:first-child {
+	margin-top: $spacing-lg;
+}
+
+.announcement {
+	.item {
+		margin-bottom: $spacing-lg;
+		padding: $vertical-padding-lg $horizontal-padding-lg;
+		background-color: $white-50;
+		border: 1px solid $light-hover;
+		border-radius: $corner-radius-sm;
+		overflow: hidden;
+
+		.createdInfo {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.user {
+				display: flex;
+			}
+
+			.actions {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.nameAndRole {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin-left: $spacing-sm;
+
+				.role {
+					margin-bottom: $spacing-xs;
+				}
+
+				.role,
+				.name {
+					@include body-2-400;
+					color: $text-grey-300;
+				}
+
+				.name::first-letter {
+					text-transform: uppercase;
+				}
+			}
+
+			.postedAt {
+				@include body-2-400;
+				color: $text-grey-300;
+			}
+		}
+
+		.line {
+			background-color: $light-hover;
+			margin: $vertical-padding-lg 0;
+			height: 1px;
+			width: 100%;
+		}
+
+		.announcementText {
+			@include body-400;
+			white-space: pre-line;
+			color: $text-grey-300;
+			max-height: 14rem;
+			overflow: hidden;
+			transition: max-height 1s ease-in-out;
+		}
+
+		.announcementTextExtended {
+			max-height: 1000rem;
+		}
+	}
+}
+
+@media (width <= 767px) {
+	.hiddenOnMobile {
+		display: none;
+	}
+}
+
+@media (width >= 768px) {
+	.announcement:first-child {
+		margin-top: $spacing-2xl;
+	}
+
+	.announcement {
+		.item {
+			margin-bottom: $spacing-lg;
+			padding: $vertical-padding-2xl $horizontal-padding-2xl $vertical-padding-sm;
+
+			.announcementText {
+				max-height: 22.5rem;
+			}
+
+			.announcementTextExtended {
+				max-height: 1000rem;
+			}
+		}
+	}
+}
